@@ -24,10 +24,9 @@ table,th,td{
 	border-radius:5px;
 	display:block;
     clear: right;
-	float:right;
+	overflow: hidden;
 	margin:2px;
 	padding:2px;
-	width:20%
 }
 
 .sgi{
@@ -66,7 +65,6 @@ table,th,td{
 	clear:both;
 	margin:2px;
 	padding:2px;
-	width:100%
 }
 
 .stph{
