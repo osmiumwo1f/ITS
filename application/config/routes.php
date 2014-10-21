@@ -37,6 +37,7 @@
 | in the URL cannot be matched to a valid route.
 |
 */
+$route['satis/ajax'] = 'satis/ajax';
 $route['satis/create'] = 'satis/create';
 $route['users/delete/(:num)'] = 'users/delete/$1';
 $route['users/create'] = 'users/create';

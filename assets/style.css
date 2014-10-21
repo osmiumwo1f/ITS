@@ -1,7 +1,8 @@
 body{
-	margin:10px,auto;
+    margin-left: auto;
+    margin-right: auto;
 	padding:10px;
-	width:auto
+	width:960px;
 }
 
 table,th,td{
@@ -18,13 +19,36 @@ table,th,td{
 	padding:10px
 }
 
+.scph{
+	border:1px solid;
+	border-radius:5px;
+	display:block;
+    clear: right;
+	float:right;
+	margin:2px;
+	padding:2px;
+	width:20%
+}
+
+.sgi{
+	border:1px solid;
+	border-radius:5px;
+	display:block;
+    clear: left;
+	float:left;
+	margin:2px;
+	padding:2px;
+	width:70%
+}
+
 .sgph{
 	border:1px solid;
 	border-radius:5px;
 	clear:both;
 	margin:2px;
 	padding:2px;
-	width:100%
+	width:100%;
+    display: block;
 }
 
 .si{
@@ -36,6 +60,20 @@ table,th,td{
 	width:100%
 }
 
+.sti{
+	border:1px solid;
+	border-radius:5px;
+	clear:both;
+	margin:2px;
+	padding:2px;
+	width:100%
+}
+
+.stph{
+	clear:both;
+    display: block;
+}
+
 #footer{
 	clear:both;
 	margin-left:auto;
@@ -44,15 +82,15 @@ table,th,td{
 }
 
 #modal{
-    margin-left: auto;
-    margin-right: auto;
+	background-color:#FFFFFF;
+	height:50%;
+	left:15%;
+	margin-left:auto;
+	margin-right:auto;
 	position:fixed;
-    top: 25%;
-    height: 50%;
-    width: 70%;
-    left: 15%;
-	z-index:101;
-    background-color: #FFFFFF;
+	top:25%;
+	width:70%;
+	z-index:101
 }
 
 #priv{
@@ -61,12 +99,6 @@ table,th,td{
 
 #satis_design{
 	clear:both
-}
-
-#si_container{
-    height: 100%;
-    width: 100%;
-    overflow: scroll;
 }
 
 #shade{
@@ -86,6 +118,12 @@ table,th,td{
 
 #shade,#modal{
 	display:none
+}
+
+#si_container{
+	height:100%;
+	overflow:scroll;
+	width:100%
 }
 
 tr:nth-child(even){
