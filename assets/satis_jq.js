@@ -18,7 +18,6 @@ $(document).ready(function(){
     $('button.close').click(close_modal);
 
     $('div.content').on('click', 'button.del', function(event){
-        console.log($(event.target).attr('class')+" "+$(event.target).attr('data-btnrole'));
         if($(event.target).attr('data-btnrole') == 'satis_group') {
         	$(event.target).parents('div.sgph').remove();
         	sort_sgph();
@@ -28,12 +27,45 @@ $(document).ready(function(){
         }
     })
 
+    $('div.content').on('click', 'button.up', function(event){
+        var i = $(event.target).parent().siblings('div');
+        console.log(i.attr('class')+" "+i.length);
+        if(i.length > 0){
+            if(i.attr('class') == 'sti'){
+                $(event.target).parent().detach().insertBefore(i);
+            }
+            else{
+                i = $(event.target).parents('div.sgph').prev('div.sgph');
+                if(i.length > 0){
+                    $(event.target).parents('div.sgph').detach().insertBefore(i);
+                }
+            }
+        }
+        console.log(i.attr('class')+" "+i.length);
+    })
+
+    $('div.content').on('click', 'button.down', function(event){
+        var i = $(event.target).parent().next('div');
+        if(i.length > 0){
+            if(i.attr('class') == 'sti'){
+                $(event.target).parent().detach().insertAfter(i);
+            }
+            else{
+                i = $(event.target).parents('div.sgph').next('div.sgph');
+                if(i.length > 0){
+                    $(event.target).parents('div.sgph').detach().insertAfter(i);
+                }
+            }
+        }
+        console.log(i.attr('class')+" "+i.length);
+    })
+
     $('div#si_container').on('click', '.si', function(event){
         if(cls == 'add') {
         	if(role == 'satis_group') {
         		$('div#'+sgphid+'.sgph').append('<div id="'+event.target.id+'" class="sgi" data-scoretype="">'+event.target.innerHTML+'</div>');
         		$('div#'+sgphid+'.sgph').children('*[data-btnrole="satis_group"]').remove();
-        		$('div#'+sgphid+'.sgph').children('div#'+event.target.id+'.sgi').append('<button class="edit" data-btnrole="satis_group">เปลี่ยนกลุ่ม</button><button class="del" data-btnrole="satis_group">ลบกลุ่ม</button>');
+        		$('div#'+sgphid+'.sgph').children('div#'+event.target.id+'.sgi').append('<button class="up" data-btnrole="satis_group">ขึ้น</button><button class="down" data-btnrole="satis_group">ลง</button><button class="edit" data-btnrole="satis_group">เปลี่ยนกลุ่ม</button><button class="del" data-btnrole="satis_group">ลบกลุ่ม</button>');
         		$('div#'+sgphid+'.sgph').append('<div class="scph"></div>');
         		$('div#'+sgphid+'.sgph').children('div.scph').append('<button class="add" data-btnrole="score_type">เกณฑ์การให้คะแนน</button>');
         		$('div#'+sgphid+'.sgph').append('<div class="stph"></div>');
@@ -44,7 +76,7 @@ $(document).ready(function(){
         	else if(role == 'satis_topics') {
         		$('div#'+sgphid+'.sgph').children('div.stph').append('<div id="'+event.target.id+'" class="sti">'+event.target.innerHTML+'</div>');
         		$('div#'+sgphid+'.sgph').find('*[class="add"][data-btnrole="satis_topics"]').remove();
-        		$('div#'+sgphid+'.sgph').find('div#'+event.target.id+'.sti').append('<button class="edit" data-btnrole="satis_topics">เปลี่ยนหัวข้อ</button><button class="del" data-btnrole="satis_topics">ลบหัวข้อ</button>');
+        		$('div#'+sgphid+'.sgph').find('div#'+event.target.id+'.sti').append('<button class="up" data-btnrole="satis_topics">ขึ้น</button><button class="down" data-btnrole="satis_topics">ลง</button><button class="edit" data-btnrole="satis_topics">เปลี่ยนหัวข้อ</button><button class="del" data-btnrole="satis_topics">ลบหัวข้อ</button>');
         		$('div#'+sgphid+'.sgph').children('div.stph').append('<button class="add" data-btnrole="satis_topics">เพิ่มหัวข้อ</button>');
         	}
         	else if(role == "score_type") {
@@ -60,14 +92,14 @@ $(document).ready(function(){
         		}
         		else {
         			$('div#'+sgphid+'.sgph').children('div.sgi').attr('id', event.target.id);
-        			$('div#'+sgphid+'.sgph').children('div.sgi').html(event.target.innerHTML+'<button class="edit" data-btnrole="satis_group">เปลี่ยนกลุ่ม</button><button class="del" data-btnrole="satis_group">ลบกลุ่ม</button>');
+        			$('div#'+sgphid+'.sgph').children('div.sgi').html(event.target.innerHTML+'<button class="up" data-btnrole="satis_group">ขึ้น</button><button class="down" data-btnrole="satis_group">ลง</button><button class="edit" data-btnrole="satis_group">เปลี่ยนกลุ่ม</button><button class="del" data-btnrole="satis_group">ลบกลุ่ม</button>');
         			$('div#'+sgphid+'.sgph').children('div.stph').find('*').remove();
         			$('div#'+sgphid+'.sgph').children('div.stph').append('<button class="add" data-btnrole="satis_topics">เพิ่มหัวข้อ</button>');
         		}
         	}
         	else if(role == 'satis_topics') {
         	    //console.log(siphc);
-        		$('div#'+id+'.sti').html(event.target.innerHTML+'<button class="edit" data-btnrole="satis_group">เปลี่ยนกลุ่ม</button><button class="del" data-btnrole="satis_group">ลบกลุ่ม</button>');
+        		$('div#'+id+'.sti').html(event.target.innerHTML+'<button class="up" data-btnrole="satis_topics">ขึ้น</button><button class="down" data-btnrole="satis_topics">ลง</button><button class="edit" data-btnrole="satis_group">เปลี่ยนกลุ่ม</button><button class="del" data-btnrole="satis_group">ลบกลุ่ม</button>');
                 $('div#'+id+'.sti').attr('id', event.target.id);
         	}
         	else if(role == "score_type") {

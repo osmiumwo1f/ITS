@@ -5,6 +5,12 @@ body{
 	width:960px;
 }
 
+button{
+    display: inline-inline-block;
+    float: right;
+    overflow: hidden;
+}
+
 table,th,td{
 	border:1px solid #000000;
 	border-collapse:collapse
@@ -32,7 +38,7 @@ table,th,td{
 .sgi{
 	border:1px solid;
 	border-radius:5px;
-	display:block;
+	display:inline-block;
     clear: left;
 	float:left;
 	margin:2px;
@@ -47,7 +53,7 @@ table,th,td{
 	margin:2px;
 	padding:2px;
 	width:100%;
-    display: block;
+    display: inline-block;
 }
 
 .si{
@@ -61,6 +67,7 @@ table,th,td{
 
 .sti{
 	border:1px solid;
+    display: block;
 	border-radius:5px;
 	clear:both;
 	margin:2px;
