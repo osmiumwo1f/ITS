@@ -4,8 +4,10 @@
     </div>
     <button class="close">ปิด</button>
 </div>
-<div class="form">
+<div class="satis_form">
     <div class="sgph" id="0">
         <button class="add" data-btnrole="satis_group">เพิ่มกลุ่ม</button>
     </div>
 </div>
+<button class="convert2json">convert</button>
+<div class="json"></div>

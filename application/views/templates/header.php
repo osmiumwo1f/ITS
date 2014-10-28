@@ -5,8 +5,9 @@
 <html>
 <head>
 	<title><?php echo $title ?></title>
-    <script src="../../../assets/jquery-1.11.1.js"></script>
+    <script src="../../../assets/jquery-2.1.1.js"></script>
     <?php echo $modal_script;?>
+    <?php echo $json;?>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="../../../assets/style.css">
 </head>
