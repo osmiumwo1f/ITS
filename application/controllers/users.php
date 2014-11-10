@@ -5,11 +5,11 @@ class Users extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('users_model');
-        $this->load->helper('url');
 	}
 
     public function index()
 	{
+        $data['burl'] = base_url();
 		$data['usr'] = $this->users_model->get_usr();
     	$data['title'] = 'รายชื่อผู้ใช้งาน';
         $data['script'] ='';
@@ -21,6 +21,7 @@ class Users extends CI_Controller {
 
     public function create()
     {
+        $data['burl'] = base_url();
     	$this->load->helper('form');
     	$this->load->library('form_validation');
 
@@ -56,6 +57,7 @@ class Users extends CI_Controller {
 
     public function edit($uid)
     {
+        $data['burl'] = base_url();
         $this->load->helper('form');
     	$this->load->library('form_validation');
 
@@ -91,6 +93,7 @@ class Users extends CI_Controller {
 
     public function delete($uid)
     {
+        $data['burl'] = base_url();
         $this->users_model->delete_usr($uid);
         $this->load->view('templates/header', $data);
     	$this->load->view('users/success');

@@ -1,0 +1,14 @@
+[
+  {"tag":"div","id":"0","class":"sgph","children":[
+      {"tag":"div","data-scoretype":"","class":"sgi","id":"2","children":[
+          {"tag":"button","data-btnrole":"satis_group","class":"down","html":"ลง"},
+          {"tag":"button","data-btnrole":"satis_group","class":"del","html":"ลบกลุ่ม"}
+        ]},
+      {"tag":"div","class":"scph","children":[
+        ]},
+      {"tag":"div","class":"stph","children":[
+        ]}
+    ]},
+  {"tag":"div","id":"1","class":"sgph","children":[
+    ]}
+]

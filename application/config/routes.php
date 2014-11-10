@@ -37,17 +37,19 @@
 | in the URL cannot be matched to a valid route.
 |
 */
-$route['satis/json'] = 'satis/json';
-$route['satis/ajax'] = 'satis/ajax';
-$route['satis/create'] = 'satis/create';
+// $route['satis/json'] = 'satis/json';
+// $route['satis/ajax'] = 'satis/ajax';
+// $route['satis/create'] = 'satis/create';
 $route['users/delete/(:num)'] = 'users/delete/$1';
 $route['users/create'] = 'users/create';
 $route['users/(:num)'] = 'users/edit/$1';
 $route['users'] = 'users';
+$route['events/(:num)/satis/create'] = 'satis/create';
 $route['events/upload'] = 'files/upload_file';
 $route['events/create'] = 'events/create';
 $route['events/(:num)'] = 'events/view/$1';
 $route['events'] = 'events';
+$route['(:num)'] = 'view/$1';
 //$route['news/create'] = 'news/create';
 //$route['news/(:any)'] = 'news/view/$1';
 //$route['news'] = 'news';

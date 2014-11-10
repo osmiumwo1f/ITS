@@ -9,6 +9,7 @@ class Events extends CI_Controller {
 
 	public function index()
 	{
+        $data['burl'] = base_url();
 		$data['event'] = $this->events_model->get_event();
     	$data['title'] = 'ประกาศกิจกรรม';
         $data['script'] ='';
@@ -20,6 +21,7 @@ class Events extends CI_Controller {
 
 	public function view($e_id)
 	{
+        $data['burl'] = base_url();
 	    $data['e_item'] = $this->events_model->get_event($e_id);
 
     	if (empty($data['e_item']))
@@ -36,6 +38,7 @@ class Events extends CI_Controller {
 
     public function create()
     {
+        $data['burl'] = base_url();
     	$this->load->helper('form');
     	$this->load->library('form_validation');
 

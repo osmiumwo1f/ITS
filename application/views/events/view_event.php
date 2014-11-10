@@ -19,4 +19,5 @@
             </tr>
         <?php endforeach ?>
     </table>
+    <a href="satis/create/">สร้างแบบประเมินความพึงพอใจ</a>
 </div>

@@ -1,0 +1,19 @@
+[
+  {"tag":"div","id":"0","class":"sgph","children":[
+      {"tag":"div","data-scoretype":"","class":"sgi","id":"2","children":[
+          {"tag":"button","data-btnrole":"satis_group","class":"up","html":"ขึ้น"},
+          {"tag":"button","data-btnrole":"satis_group","class":"down","html":"ลง"},
+          {"tag":"button","data-btnrole":"satis_group","class":"edit","html":"เปลี่ยนกลุ่ม"},
+          {"tag":"button","data-btnrole":"satis_group","class":"del","html":"ลบกลุ่ม"}
+        ]},
+      {"tag":"div","class":"scph","children":[
+          {"tag":"button","data-btnrole":"score_type","class":"add","html":"เกณฑ์การให้คะแนน"}
+        ]},
+      {"tag":"div","class":"stph","children":[
+          {"tag":"button","data-btnrole":"satis_topics","class":"add","html":"เพิ่มหัวข้อ"}
+        ]}
+    ]},
+  {"tag":"div","id":"1","class":"sgph","children":[
+      {"tag":"button","data-btnrole":"satis_group","class":"add","html":"เพิ่มกลุ่ม"}
+    ]}
+]

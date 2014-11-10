@@ -1,0 +1,94 @@
+[
+    {
+        "tag": "div",
+        "id": "0",
+        "class": "sgph",
+        "children": [
+            {
+                "tag": "div",
+                "data-scoretype": "1",
+                "class": "sgi",
+                "id": "1"
+            },
+            {
+                "tag": "div",
+                "class": "stph",
+                "children": [
+                    {
+                        "tag": "div",
+                        "class": "sti",
+                        "id": "1"
+                    },
+                    {
+                        "tag": "div",
+                        "class": "sti",
+                        "id": "3"
+                    },
+                    {
+                        "tag": "div",
+                        "class": "sti",
+                        "id": "2"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "tag": "div",
+        "id": "1",
+        "class": "sgph",
+        "children": [
+            {
+                "tag": "div",
+                "data-scoretype": "1",
+                "class": "sgi",
+                "id": "2"
+            },
+            {
+                "tag": "div",
+                "class": "stph",
+                "children": [
+                    {
+                        "tag": "div",
+                        "class": "sti",
+                        "id": "5"
+                    },
+                    {
+                        "tag": "div",
+                        "class": "sti",
+                        "id": "4"
+                    },
+                    {
+                        "tag": "div",
+                        "class": "sti",
+                        "id": "6"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "tag": "div",
+        "id": "2",
+        "class": "sgph",
+        "children": [
+            {
+                "tag": "div",
+                "data-scoretype": "3",
+                "class": "sgi",
+                "id": "3"
+            },
+            {
+                "tag": "div",
+                "class": "stph",
+                "children": [
+                    {
+                        "tag": "div",
+                        "class": "sti",
+                        "id": "7"
+                    }
+                ]
+            }
+        ]
+    }
+]

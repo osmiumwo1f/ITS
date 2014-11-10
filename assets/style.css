@@ -6,7 +6,6 @@ body{
 }
 
 button{
-    display: inline-inline-block;
     float: right;
     overflow: hidden;
 }
@@ -38,12 +37,9 @@ table,th,td{
 .sgi{
 	border:1px solid;
 	border-radius:5px;
-	display:inline-block;
-    clear: left;
-	float:left;
+    clear: both;
 	margin:2px;
 	padding:2px;
-	width:70%
 }
 
 .sgph{
@@ -62,7 +58,6 @@ table,th,td{
 	clear:both;
 	margin:2px;
 	padding:2px;
-	width:100%
 }
 
 .sti{
@@ -89,11 +84,19 @@ table,th,td{
 #modal{
 	background-color:#FFFFFF;
 	height:50%;
-	left:15%;
 	margin-left:auto;
 	margin-right:auto;
 	position:fixed;
-	top:25%;
+	width:70%;
+	z-index:101
+}
+
+#form_preview{
+	background-color:#FFFFFF;
+	height:50%;
+	margin-left:auto;
+	margin-right:auto;
+	position:fixed;
 	width:70%;
 	z-index:101
 }
@@ -121,7 +124,7 @@ table,th,td{
 	opacity:0.9
 }
 
-#shade,#modal{
+#shade,#modal, #form_preview{
 	display:none
 }
 
