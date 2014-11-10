@@ -9,7 +9,7 @@ class Satis extends CI_Controller {
 	public function create() {
 		$data['burl'] = base_url();
 		$data['title'] = '...';
-		$data['modal_script'] = '<script type="text/javascript" src="assets/satis_jq.js"></script>';
+		$data['modal_script'] = '<script type="text/javascript" src="'.$data['burl'].'assets/satis_jq.js"></script>';
         $data['json'] = '<script type="text/javascript" src="'.$data['burl'].'assets/jquery.json2html.js"></script>';
 		$this->load->view('templates/header', $data);
 		$this->load->view('satis/create_edit_form', $data);
@@ -27,7 +27,6 @@ class Satis extends CI_Controller {
 		$type = $this->input->post('type');
 		$list = $this->input->post('list');
 		$p = $this->input->post('p');
-		//$data['x'] = $list;
 		$data['ajax'] = $this->satis_model->ajax($p, $type, null, $list);
 		$this->load->view('satis/si', $data);
 	}

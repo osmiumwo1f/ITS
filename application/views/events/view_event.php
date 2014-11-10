@@ -19,5 +19,5 @@
             </tr>
         <?php endforeach ?>
     </table>
-    <a href="satis/create/">สร้างแบบประเมินความพึงพอใจ</a>
+    <a href="<?php echo $e_item[1]['id'];?>/satis/create/">สร้างแบบประเมินความพึงพอใจ</a>
 </div>

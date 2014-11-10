@@ -12,7 +12,7 @@
 
         <?php foreach ($event as $e_item){ ?>
             <tr>
-                <td><a href="<?php echo $e_item['id'].'/'; ?>"> <?php echo $e_item['name']; ?></a></td>
+                <td><a href="<?php echo $burl.'events/'.$e_item['id'].''; ?>"> <?php echo $e_item['name']; ?></a></td>
                 <td><?php echo $e_item['place']; ?></td>
                 <td><?php echo $e_item['date']; ?></td>
                 <td><?php echo $e_item['amount']; ?></td>

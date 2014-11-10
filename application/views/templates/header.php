@@ -12,8 +12,8 @@
 <body>
 	<h1 align="center">ITS</h1>
 	<div id="menubar">
-		<div><a href="<?php echo $burl;?>"></a></div>
-		<div><a href="<?php echo $burl;?>"></a></div>
+		<div><a href="<?php echo $burl;?>events">events</a></div>
+		<div><a href="<?php echo $burl;?>users">users</a></div>
 		<div><a href="<?php echo $burl;?>"></a></div>
 	</div>
     <div class="content">
