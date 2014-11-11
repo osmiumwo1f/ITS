@@ -161,7 +161,7 @@ $(document).ready(function(){
 	});
 	$('button#submit').click(function(){
 		$.ajax({
-			url: 'http://localhost:8080/its/index.php/satis/get_si/',
+			url: 'http://localhost:8080/its/satis/get_si/',
 			type: 'post',
 			data: {},
 			success: function (data) {
@@ -304,7 +304,7 @@ function get_si(type, list){
 		cache: false,
 		type: 'POST',
 		dataType: 'json',
-		url: 'http://localhost:8080/its/index.php/satis/get_si/',
+		url: 'http://localhost:8080/its/satis/get_si/',
 		data: {'p': 'used', 'type': type, 'list': list},
 		success: function(resp) {
 			whereShouldItGo(type, resp);
@@ -336,7 +336,7 @@ function get_si_list(type, group, list) {
 	$.ajax({
 		cache: false,
 		type: 'POST',
-		url: 'http://localhost:8080/its/index.php/satis/get_si_list/',
+		url: 'http://localhost:8080/its/satis/get_si_list/',
 		data: {'p': 'unused', 'type': type, 'group': group, 'list': list},
 		success: function(resp) {
 			$('div#si_container').html(resp);

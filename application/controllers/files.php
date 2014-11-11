@@ -14,7 +14,6 @@ class Files extends CI_Controller {
 
     public function view_files($e_id)
     {
-    	$data['burl'] = base_url();
         $data['files'] = $this->files_model->get_files($e_id);
     	$data['title'] = 'ไฟล์สำหรับใช้ประกอบการอบรม';
 
@@ -25,7 +24,6 @@ class Files extends CI_Controller {
 
 	public function upload_file()
 	{
-		$data['burl'] = base_url();
 	    $this->load->helper(array('form'));
         $this->load->library('form_validation');
 

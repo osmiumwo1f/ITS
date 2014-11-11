@@ -9,7 +9,6 @@ class Events extends CI_Controller {
 
 	public function index()
 	{
-        $data['burl'] = base_url();
 		$data['event'] = $this->events_model->get_event();
     	$data['title'] = 'ประกาศกิจกรรม';
         $data['script'] ='';
@@ -21,7 +20,9 @@ class Events extends CI_Controller {
 
 	public function view($e_id)
 	{
-        $data['burl'] = base_url();
+        $this->load->helper(array('form'));
+        $this->load->library('form_validation');
+
 	    $data['e_item'] = $this->events_model->get_event($e_id);
 
     	if (empty($data['e_item']))
@@ -38,7 +39,6 @@ class Events extends CI_Controller {
 
     public function create()
     {
-        $data['burl'] = base_url();
     	$this->load->helper('form');
     	$this->load->library('form_validation');
 
@@ -60,6 +60,77 @@ class Events extends CI_Controller {
     		$this->load->view('events/index');
     		$this->load->view('templates/footer');
     	}
+    }
+
+    public function upload_file()
+    {
+        $status = "";
+        $msg = "";
+        $file_element_name = 'file';
+         
+        if (empty($_POST['title']))
+        {
+            $status = "error";
+            $msg = "Please enter a title";
+        }
+         
+        if ($status != "error")
+        {
+            $config['upload_path'] = './uploads/';
+            $config['allowed_types'] = '*';
+            $config['max_size'] = 1024 * 8;
+            $config['encrypt_name'] = TRUE;
+     
+            $this->load->library('upload', $config);
+     
+            if (!$this->upload->do_upload($file_element_name))
+            {
+                $status = 'error';
+                $msg = $this->upload->display_errors('', '');
+            }
+            else
+            {
+                $data = $this->upload->data();
+                $file_id = $this->files_model->insert_file($data['file_name'], $_POST['title']);
+                if($file_id)
+                {
+                    $status = "success";
+                    $msg = "File successfully uploaded";
+                }
+                else
+                {
+                    unlink($data['full_path']);
+                    $status = "error";
+                    $msg = "Something went wrong when saving the file, please try again.";
+                }
+            }
+            @unlink($_FILES[$file_element_name]);
+        }
+        echo json_encode(array('status' => $status, 'msg' => $msg));
+
+        /*$this->load->helper(array('form'));
+        $this->load->library('form_validation');
+
+        $config['upload_path'] = './uploads/';
+        $config['allowed_types'] = '*';
+        $config['max_size'] = 2048;
+        $config['encrypt_name'] = TRUE;
+
+        $this->load->library('upload', $config);
+
+        $data['title'] = 'เพิ่มไฟล์';
+
+        if ( ! $this->upload->do_upload())
+        {
+            $error = array('error' => $this->upload->display_errors());
+            $this->load->view('events/upload_file', $error);
+        }
+        else
+        {
+            $data = array('upload_data' => $this->upload->data());
+            $this->events_model->set_files($this->upload->data('file_name'));
+            $this->load->view('events/upload_file');
+        }*/
     }
 }
 ?>

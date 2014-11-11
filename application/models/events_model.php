@@ -35,5 +35,16 @@ class Events_model extends CI_Model {
 
     	return $this->db->insert('events', $data);
     }
+
+    public function set_files($fn)
+    {
+        $data = array(
+            'event_id' => 0,
+            'descriptions' => $this->input->post('des'),
+            'name' => $this->input->post('name'),
+            'path' => $fn['file_name'],
+        );
+        return $this->db->insert('files', $data);
+    }
 }
 ?>

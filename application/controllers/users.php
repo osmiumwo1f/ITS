@@ -9,7 +9,6 @@ class Users extends CI_Controller {
 
     public function index()
 	{
-        $data['burl'] = base_url();
 		$data['usr'] = $this->users_model->get_usr();
     	$data['title'] = 'รายชื่อผู้ใช้งาน';
         $data['script'] ='';
@@ -21,7 +20,6 @@ class Users extends CI_Controller {
 
     public function create()
     {
-        $data['burl'] = base_url();
     	$this->load->helper('form');
     	$this->load->library('form_validation');
 

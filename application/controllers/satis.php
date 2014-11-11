@@ -7,7 +7,6 @@ class Satis extends CI_Controller {
 	public function get_form($eid) {
 	}
 	public function create() {
-		$data['burl'] = base_url();
 		$data['title'] = '...';
 		$data['modal_script'] = '<script type="text/javascript" src="'.$data['burl'].'assets/satis_jq.js"></script>';
         $data['json'] = '<script type="text/javascript" src="'.$data['burl'].'assets/jquery.json2html.js"></script>';
