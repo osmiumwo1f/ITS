@@ -55,7 +55,6 @@ class Users extends CI_Controller {
 
     public function edit($uid)
     {
-        $data['burl'] = base_url();
         $this->load->helper('form');
     	$this->load->library('form_validation');
 
@@ -91,11 +90,38 @@ class Users extends CI_Controller {
 
     public function delete($uid)
     {
-        $data['burl'] = base_url();
         $this->users_model->delete_usr($uid);
         $this->load->view('templates/header', $data);
     	$this->load->view('users/success');
     	$this->load->view('templates/footer');
+    }
+
+    public function login(){
+        $data['title'] = 'ลงชื่อเข้าใช้งาน';
+        $this->load->helper('form');
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('usr', 'ชื่อผู้ใช้งาน', 'trim|required|alpha_dash|xss_clean');
+        $this->form_validation->set_rules('pwd', 'รหัสผ่าน', 'trim|required|alpha_dash|md5');
+
+        if ($this->form_validation->run() === FALSE){
+            $this->load->view('templates/header', $data);
+            $this->load->view('users/login');
+            $this->load->view('templates/footer');
+        }
+        else{
+            $usr = $this->input->post('usr');
+            $pwd = $this->input->post('pwd');
+            $result = $this->users_model->login($usr, $pwd);
+            if($result == false){
+                $this->load->view('templates/header', $data);
+                $this->load->view('users/login');
+                $this->load->view('templates/footer');
+            }
+            else{
+                index();
+            }
+        }
     }
 }
 ?>

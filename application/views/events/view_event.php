@@ -17,25 +17,26 @@
     </form>
     <button class="close">ปิด</button>
 </div>
-    <?php
-echo '<h2>'.$e_item[1]['name'].'</h2><br>';
-echo '1: '.$e_item[1]['descriptions'].'<br>';
-echo '2: '.$e_item[1]['requirements'].'<br>';
-echo '3: '.$e_item[1]['fee'].'<br>';
-echo '4: '.$e_item[1]['date'].'<br>';
-echo '5: '.$e_item[1]['place'].'<br>';
-echo '6: '.$e_item[1]['amount'].'<br>';
-echo '7: '.$e_item[1]['note'].'<br>';
+<?php
+    echo '<h2>'.$e_item[0]['name'].'</h2><br>';
+    echo 'des: '.$e_item[0]['descriptions'].'<br>';
+    echo 'req: '.$e_item[0]['requirements'].'<br>';
+    echo 'fee: '.$e_item[0]['fee'].'<br>';
+    echo 'date: '.$e_item[0]['date'].'<br>';
+    echo 'plc: '.$e_item[0]['place'].'<br>';
+    echo 'amnt: '.$e_item[0]['amount'].'<br>';
+    echo 'note: '.$e_item[0]['note'].'<br>';
 ?>
+ไฟล์ที่ใช้ประกอบในการอบรม
 <table class="event">
     <th>ชื่อไฟล์</th>
     <th>รายละเอียด</th>
-    <?php foreach ($e_item as $f):?>
+    <?php foreach ($f_item as $f):?>
         <tr>
-            <td><?php echo $f['fn']; ?></td>
-            <td><?php echo $f['fd']; ?></td>
+            <td><?php echo $f['name']; ?></td>
+            <td><?php echo $f['descriptions']; ?></td>
         </tr>
     <?php endforeach ?>
 </table>
 <button id="file" class="add">เพิ่มไฟล์</button>
-<a href="<?php echo $e_item[1]['id'];?>/satis/create/">สร้างแบบประเมินความพึงพอใจ</a>
+<a href="<?php echo $e_item[0]['id'];?>/satis/create/">สร้างแบบประเมินความพึงพอใจ</a>

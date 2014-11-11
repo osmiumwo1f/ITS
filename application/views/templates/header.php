@@ -12,8 +12,8 @@
 <body>
 	<h1 align="center">ITS</h1>
 	<div id="menubar">
-		<div><a href="<?php echo base_url();?>"></a></div>
-		<div><a href="<?php echo base_url();?>"></a></div>
+		<div><a href="<?php echo base_url();?>events">events</a></div>
+		<div><a href="<?php echo base_url();?>users">users</a></div>
 		<div><a href="<?php echo base_url();?>"></a></div>
 	</div>
     <div class="content">

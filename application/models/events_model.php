@@ -14,7 +14,7 @@ class Events_model extends CI_Model {
     		return $query->result_array();
     	}
 
-        $this->db->select('events.*')->select('files.name AS fn, files.descriptions AS fd, files.path')->from('events, files')->where('events.id', $e_id);
+        $this->db->select('*')->from('events')->where('events.id', $e_id);
         $query = $this->db->get();
     	return $query->result_array();
     }
@@ -34,6 +34,12 @@ class Events_model extends CI_Model {
     	);
 
     	return $this->db->insert('events', $data);
+    }
+
+    public function get_files($e_id){
+        $this->db->select('*')->from('files')->where('event_id', $e_id);
+        $query = $this->db->get();
+        return $query->result_array();
     }
 
     public function set_files($fn)

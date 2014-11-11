@@ -74,5 +74,16 @@ class Users_model extends CI_Model {
         $this->db->where('id', $uid);
         return $this->db->update('users', $data);
     }
+
+    public function login($usr, $pwd){
+        $this->db->select('id, usr, pwd')->from('users')->where(array('usr' => $usr, 'pwd' => md5($pwd)));
+        $query = $this->db->get();
+        if($query->num_rows() == 1){
+            return $query->row_array();
+        }
+        else{
+            return false;
+        }
+    }
 }
 ?>

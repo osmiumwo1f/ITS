@@ -1,5 +1,4 @@
 <?php echo $modal_script;?>
-<input type="hidden" value="<?php echo $burl;?>" />
 <div id="shade"></div>
 <div id="modal">
     <div id="si_container">
