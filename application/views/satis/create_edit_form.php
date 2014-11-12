@@ -1,4 +1,4 @@
-<?php echo $modal_script;?>
+<script src="<?php echo base_url();?>assets/satis_jq.js"></script>
 <div id="shade"></div>
 <div id="modal">
     <div id="si_container">

@@ -7,11 +7,6 @@ class Files extends CI_Controller {
         $this->load->model('files_model');
 	}
 
-/*	public function index()
-	{
-
-	}*/
-
     public function view_files($e_id)
     {
         $data['files'] = $this->files_model->get_files($e_id);
@@ -29,7 +24,7 @@ class Files extends CI_Controller {
 
 		$config['upload_path'] = './uploads/';
         $config['allowed_types'] = '*';
-		$config['max_size'] = 2048;
+		$config['max_size'] = 1024 * 16;
         $config['encrypt_name'] = TRUE;
 
 		$this->load->library('upload', $config);
@@ -48,7 +43,7 @@ class Files extends CI_Controller {
 			$data = array('upload_data' => $this->upload->data());
             $this->files_model->set_files($this->upload->data('file_name'));
             $this->load->view('templates/header', $data);
-			$this->load->view('events/upload_file');
+			$this->load->view('events/success');
             $this->load->view('templates/footer');
 		}
 	}

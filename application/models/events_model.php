@@ -21,18 +21,6 @@ class Events_model extends CI_Model {
 
     public function set_event()
     {
-    	$data = array(
-    	    'name' => $this->input->post('name'),
-            'descriptions' => $this->input->post('des'),
-            'requirements' => $this->input->post('req'),
-            'fee' => $this->input->post('fee'),
-            'date' => $this->input->post('date'),
-            'place' => $this->input->post('place'),
-            'amount' => $this->input->post('amount'),
-            'note' => $this->input->post('note'),
-
-    	);
-
     	return $this->db->insert('events', $data);
     }
 

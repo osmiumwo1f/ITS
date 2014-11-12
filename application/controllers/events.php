@@ -45,7 +45,20 @@ class Events extends CI_Controller {
 
     	$data['title'] = 'เพิ่มหัวข้อการอบรม/กำหนดการ ';
 
+        $data['e_item'] = array(
+            'name' => $this->input->post('name'),
+            'descriptions' => $this->input->post('des'),
+            'requirements' => $this->input->post('req'),
+            'fee' => $this->input->post('fee'),
+            'date' => $this->input->post('date'),
+            'place' => $this->input->post('place'),
+            'amount' => $this->input->post('amount'),
+            'note' => $this->input->post('note'),
+
+        );
+
     	$this->form_validation->set_rules('name', 'หัวข้อการอบรม/กำหนดการ', 'required');
+        $this->form_validation->set_rules('des', 'des/กำหนดการ', 'required');
 
     	if ($this->form_validation->run() === FALSE)
     	{
@@ -57,9 +70,7 @@ class Events extends CI_Controller {
     	else
     	{
     		$this->events_model->set_event();
-    		$this->load->view('templates/header', $data);
-    		$this->load->view('events/index');
-    		$this->load->view('templates/footer');
+    		redirect('events', 'refresh');
     	}
     }
 }

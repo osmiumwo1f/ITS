@@ -1,3 +1,4 @@
+<script src="<?php echo base_url();?>assets/users.js"></script>
 <?php
     if($state == 'edit')
     {

@@ -12,16 +12,13 @@ class Users extends CI_Controller {
         if($this->session->userdata('id')){
     		$data['usr'] = $this->users_model->get_usr();
         	$data['title'] = 'รายชื่อผู้ใช้งาน';
-            $data['script'] ='';
 
         	$this->load->view('templates/header', $data);
         	$this->load->view('users/index', $data);
         	$this->load->view('templates/footer');
         }
         else{
-            $this->load->view('templates/header', $data);
-            $this->load->view('users/login');
-            $this->load->view('templates/footer');
+            redirect('users/login', 'refresh');
         }
 	}
 
@@ -61,9 +58,7 @@ class Users extends CI_Controller {
         	}
         }
         else{
-            $this->load->view('templates/header', $data);
-            $this->load->view('users/login');
-            $this->load->view('templates/footer');
+            redirect('users/login', 'refresh');
         }
     }
 
@@ -103,9 +98,7 @@ class Users extends CI_Controller {
         	}
         }
         else{
-            $this->load->view('templates/header', $data);
-            $this->load->view('users/login');
-            $this->load->view('templates/footer');
+            redirect('users/login', 'refresh');
         }
     }
 
@@ -118,9 +111,7 @@ class Users extends CI_Controller {
         	$this->load->view('templates/footer');
         }
         else{
-            $this->load->view('templates/header', $data);
-            $this->load->view('users/login');
-            $this->load->view('templates/footer');
+            redirect('users/login', 'refresh');
         }
     }
 
@@ -161,6 +152,7 @@ class Users extends CI_Controller {
 
     public function logout(){
         $this->session->sess_destroy();
+        redirect('events', 'refresh');
     }
 
     public function cookie(){
