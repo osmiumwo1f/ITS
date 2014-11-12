@@ -76,7 +76,7 @@ class Users_model extends CI_Model {
     }
 
     public function login($usr, $pwd){
-        $this->db->select('id, usr, pwd')->from('users')->where(array('usr' => $usr, 'pwd' => md5($pwd)));
+        $this->db->select('*')->from('users')->where(array('usr' => $usr, 'pwd' => md5($pwd), 'delete_mark' => 0));
         $query = $this->db->get();
         if($query->num_rows() == 1){
             return $query->row_array();
