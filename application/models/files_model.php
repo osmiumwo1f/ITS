@@ -15,14 +15,14 @@ class Files_model extends CI_Model {
         }
     }
 
-    public function set_files($fn)
+    public function set_files($fn, $e_id)
     {
-        $data = array(
-            'event_id' => 0,
+        $upload = array(
+            'event_id' => $this->input->post('e_id'),
             'descriptions' => $this->input->post('des'),
-            'name' => $this->input->post('name'),
+            'name' => $fn['orig_name'],
             'path' => $fn['file_name'],
         );
-        return $this->db->insert('files', $data);
+        return $this->db->insert('files', $upload);
     }
 }

@@ -7,18 +7,14 @@
     <?php
         echo $error;
         echo form_open_multipart('files/upload_file');?>
-        <label for="name">ชื่อ</label>
-        <input type="text" name="name" id="name" value="" />
-
+ 
+        <label for="userfile">ไฟล์</label>
+        <input type="file" name="userfile" id="userfile" size="20" />
+        <br>
         <label for="des">คำอธิบาย</label>
         <textarea name="des" id="des"></textarea>
  
-        <label for="userfile">ไฟล์</label>
-        <input type="file" name="userfile" id="file" size="20" />
- 
         <input type="submit" name="submit" id="submit" value="เพิ่มไฟล์" />
     </form>
-    <h2>Files</h2>
-    <div id="files"></div>
 </body>
 </html>

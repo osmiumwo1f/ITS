@@ -17,34 +17,45 @@ class Files extends CI_Controller {
     	$this->load->view('templates/footer');
     }
 
-	public function upload_file()
+	public function upload_file($e_id)
 	{
-	    $this->load->helper(array('form'));
-        $this->load->library('form_validation');
+		if($this->session->userdata('id')){
+		    $this->load->helper(array('form'));
+	        $this->load->library('form_validation');
 
-		$config['upload_path'] = './uploads/';
-        $config['allowed_types'] = '*';
-		$config['max_size'] = 1024 * 16;
-        $config['encrypt_name'] = TRUE;
+			$config['upload_path'] = './uploads/';
+	        $config['allowed_types'] = '*';
+			$config['max_size'] = 1024 * 16;
+	        $config['encrypt_name'] = TRUE;
 
-		$this->load->library('upload', $config);
+			$this->load->library('upload', $config);
 
-        $data['title'] = 'เพิ่มไฟล์';
+	        $data['title'] = 'เพิ่มไฟล์';
 
-		if ( ! $this->upload->do_upload())
-		{
-			$error = array('error' => $this->upload->display_errors());
-            $this->load->view('templates/header', $data);
-			$this->load->view('events/upload_file', $error);
-            $this->load->view('templates/footer');
+			if ( ! $this->upload->do_upload())
+			{
+				$error = array('error' => $this->upload->display_errors());
+				$this->load->view('events/upload_file', $error);
+			}
+			else
+			{
+				$data = array('upload_data' => $this->upload->data());
+	            $this->files_model->set_files($this->upload->data(), $e_id);
+	            $url = base_url().'events/'.$this->input->post('e_id');
+	            redirect($url, 'refresh');
+			}
 		}
-		else
-		{
-			$data = array('upload_data' => $this->upload->data());
-            $this->files_model->set_files($this->upload->data('file_name'));
-            $this->load->view('templates/header', $data);
-			$this->load->view('events/success');
-            $this->load->view('templates/footer');
+		else{
+            redirect('users/login', 'refresh');
+        }
+	}
+
+	public function delete_file($efn){
+		if($this->session->userdata('id')){
+
 		}
+		else{
+            redirect('users/login', 'refresh');
+        }
 	}
 }

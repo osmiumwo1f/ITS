@@ -1,22 +1,23 @@
 <script type="text/javascript" src="<?php echo base_url();?>assets/upload.js"></script>
 <div id="shade"></div>
+<!--<iframe id="modal" src="<?php echo base_url();?>events/<?php echo $e_item[0]['id'];?>/upload">-->
+
 <div id="modal">
-    <?php echo form_open_multipart('events/upload_file');?>
-
-    <label for="name">ชื่อ</label>
-    <input type="input" name="name" size="20" id="name" value=""/><br>
-    <label for="des">รายละเอียด</label>
-    <textarea name="des" id="des"></textarea><br>
-    <label for="userfile">ไฟล์</label>
-    <input type="file" name="userfile" size="20" id="file" value=""/>
-
-    <br /><br />
-
-    <button type="submit" class="upload">เพิ่มไฟล์</button>
-
+    <?php
+        //echo $error;
+        echo form_open_multipart('files/upload_file');?>
+        <input type="hidden" name="e_id" id="e_id" value="<?php echo $e_item[0]['id'];?>" />
+        <label for="userfile">ไฟล์</label>
+        <input type="file" name="userfile" id="userfile" size="20" />
+        <br>
+        <label for="des">คำอธิบาย</label>
+        <textarea name="des" id="des"></textarea>
+     
+        <input type="submit" name="submit" id="submit" value="เพิ่มไฟล์" />
     </form>
     <button class="close">ปิด</button>
 </div>
+
 <?php
     echo '<h2>'.$e_item[0]['name'].'</h2><br>';
     echo 'des: '.$e_item[0]['descriptions'].'<br>';
@@ -33,7 +34,7 @@
     <th>รายละเอียด</th>
     <?php foreach ($f_item as $f):?>
         <tr>
-            <td><?php echo $f['name']; ?></td>
+            <td><a href="<?php echo base_url().'uploads/'.$f['path'];?>"><?php echo $f['name']; ?></a></td>
             <td><?php echo $f['descriptions']; ?></td>
         </tr>
     <?php endforeach ?>

@@ -58,7 +58,13 @@ class Events extends CI_Controller {
         );
 
     	$this->form_validation->set_rules('name', 'หัวข้อการอบรม/กำหนดการ', 'required');
-        $this->form_validation->set_rules('des', 'des/กำหนดการ', 'required');
+        $this->form_validation->set_rules('des', 'des/กำหนดการ', '');
+        $this->form_validation->set_rules('req', 'des/กำหนดการ', '');
+        $this->form_validation->set_rules('fee', 'des/กำหนดการ', '');
+        $this->form_validation->set_rules('date', 'des/กำหนดการ', '');
+        $this->form_validation->set_rules('place', 'des/กำหนดการ', '');
+        $this->form_validation->set_rules('amount', 'des/กำหนดการ', '');
+        $this->form_validation->set_rules('note', 'des/กำหนดการ', '');
 
     	if ($this->form_validation->run() === FALSE)
     	{

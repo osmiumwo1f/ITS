@@ -44,6 +44,7 @@ $route['users/delete/(:num)'] = 'users/delete/$1';
 $route['users/create'] = 'users/create';
 $route['users/(:num)'] = 'users/edit/$1';
 $route['users'] = 'users';
+$route['events/(:num)/upload'] = 'files/upload_file/$1';
 $route['events/(:num)/satis/create'] = 'satis/create';
 $route['events/upload'] = 'files/upload_file';
 $route['events/create'] = 'events/create';
